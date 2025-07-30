@@ -116,13 +116,24 @@ const PdfUploader = () => {
       const data = await response.json();
       setAiResponse(data?.result || 'No response from OpenAI.');
       setIsUploaded(true);
-    } catch (err: any) {
-      console.error(err);
-      setError(err.message || 'Failed to fetch tailored resume.');
-    } finally {
-      setLoading(false);
     }
-  };
+    catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error(err);
+        setError(err.message || 'Failed to fetch tailored resume.');
+      } else {
+        console.error('Unexpected error:', err);
+        setError('An unexpected error occurred.');
+      }
+    }
+  }
+  //   catch (err: unknown) {
+  //     console.error(err);
+  //     setError(err.message || 'Failed to fetch tailored resume.');
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   // const downloadPdf = async () => {
   //   console.log('clicked ')
