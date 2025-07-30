@@ -64,13 +64,13 @@ export default function FeaturesPage() {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><LiaJenkins href='/'>Home</LiaJenkins></li>
+                        <li><Link href='/'>Home</Link></li>
                         <li>
 
                             <Link href="/features">Features</Link>
                         </li>
-                        <li><LiaJenkins href="/blogs">Blog</LiaJenkins></li>
-                        <li><LiaJenkins href="/aboutus">About Us</LiaJenkins></li>
+                        <li><Link href="/blogs">Blog</Link></li>
+                        <li><Link href="/aboutus">About Us</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end m-2 gap-2">
