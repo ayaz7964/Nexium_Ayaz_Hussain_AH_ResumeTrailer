@@ -172,29 +172,33 @@ export default function ResumeBuilder() {
       <footer className="bg-base-300 text-base-content px-6 py-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+            {/* Services */}
             <div>
               <h6 className="footer-title mb-2">Services</h6>
-              <a className="link link-hover block">Resume Builder</a>
-              <a className="link link-hover block">Cover Letters</a>
-              <a className="link link-hover block">Templates</a>
-              <a className="link link-hover block">Job Tracker</a>
+              <Link href="/resume-builder" className="link link-hover block">Resume Builder</Link>
+              <Link href="/cover-letters" className="link link-hover block">Cover Letters</Link>
+              <Link href="/templates" className="link link-hover block">Templates</Link>
+              <Link href="/job-tracker" className="link link-hover block">Job Tracker</Link>
             </div>
 
+            {/* Company */}
             <div>
               <h6 className="footer-title mb-2">Company</h6>
-              <a className="link link-hover block">About Us</a>
-              <a className="link link-hover block">Careers</a>
-              <a className="link link-hover block">Contact</a>
-              <a className="link link-hover block">Blog</a>
+              <Link href="/about" className="link link-hover block">About Us</Link>
+              <Link href="/careers" className="link link-hover block">Careers</Link>
+              <Link href="/contact" className="link link-hover block">Contact</Link>
+              <Link href="/blog" className="link link-hover block">Blog</Link>
             </div>
 
+            {/* Legal */}
             <div>
               <h6 className="footer-title mb-2">Legal</h6>
-              <a className="link link-hover block">Terms of Use</a>
-              <a className="link link-hover block">Privacy Policy</a>
-              <a className="link link-hover block">Cookie Policy</a>
+              <Link href="/terms" className="link link-hover block">Terms of Use</Link>
+              <Link href="/privacy" className="link link-hover block">Privacy Policy</Link>
+              <Link href="/cookies" className="link link-hover block">Cookie Policy</Link>
             </div>
 
+            {/* Follow Us */}
             <div>
               <h6 className="footer-title mb-2">Follow Us</h6>
               <div className="flex gap-4 mt-2">
@@ -233,7 +237,6 @@ export default function ResumeBuilder() {
                   </svg>
                 </a>
               </div>
-
             </div>
           </div>
 
@@ -242,7 +245,7 @@ export default function ResumeBuilder() {
 
           {/* Bottom Bar */}
           <div className="text-center text-sm text-gray-500">
-            © 2025 AH ResumeTrailer. All rights reserved. | Built by <span className="text-primary font-medium">Ayaz Hussain</span>
+            © 2025 ResumeTrailer. All rights reserved. | Built by <span className="text-primary font-medium">Ayaz Hussain</span>
           </div>
         </div>
       </footer>
