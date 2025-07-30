@@ -19,10 +19,10 @@ type ResumeData = {
   country: string;
   employmentHistory: { company: string; role: string; duration: string; description: string }[];
   education: { education: string; institution: string; graduationYear: string }[];
-  skills: string[];
-  languages: string[];
-  certifications: string[];
-  hobbies: string[];
+  skills: { value: string }[];
+  languages: { value: string }[];
+  certifications: { value: string }[];
+  hobbies: { value: string }[];
   experienceSummary: string;
 };
 
@@ -33,10 +33,10 @@ export default function ResumeBuilder() {
     defaultValues: {
       employmentHistory: [{ company: '', role: '', duration: '', description: '' }],
       education: [{ education: '', institution: '', graduationYear: '' }],
-      skills: [],
-      languages: [],
-      certifications: [],
-      hobbies: [],
+      skills: [{ value: '' }],
+      languages: [{ value: '' }],
+      certifications: [{ value: '' }],
+      hobbies: [{ value: '' }],
     },
   });
 
@@ -135,11 +135,11 @@ export default function ResumeBuilder() {
 
             {step === 4 && (
               <div className="space-y-4">
-                <button type="submit" disabled={submitted} className="btn btn-success w-full">
+                <button type="submit" disabled={submitted} className="btn btn-success w-full rounded hover:bg-blue-600 transition-colors duration-200">
                   Submit & Generate Resume
                 </button>
                 {submitted && (
-                  <button type="button" className="btn btn-outline w-full" onClick={handlePrint}>
+                  <button type="button" className="btn btn-outline w-full rounded hover:bg-blue-600 transition-colors duration-200" onClick={handlePrint}>
                     Download as PDF
                   </button>
                 )}
@@ -148,12 +148,12 @@ export default function ResumeBuilder() {
 
             <div className="flex justify-between pt-6">
               {step > 0 && (
-                <button type="button" className="btn btn-secondary" onClick={onPrev}>
+                <button type="button" className="btn btn-secondary rounded hover:bg-blue-600 transition-colors duration-200" onClick={onPrev}>
                   Back
                 </button>
               )}
               {step < steps.length - 1 && (
-                <button type="button" className="btn btn-primary" onClick={onNext}>
+                <button type="button" className="btn btn-primary rounded hover:bg-blue-600 transition-colors duration-200" onClick={onNext}>
                   Next
                 </button>
               )}
@@ -172,33 +172,29 @@ export default function ResumeBuilder() {
       <footer className="bg-base-300 text-base-content px-6 py-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
-            {/* Services */}
             <div>
               <h6 className="footer-title mb-2">Services</h6>
-              <Link href="/resume-builder" className="link link-hover block">Resume Builder</Link>
-              <Link href="/cover-letters" className="link link-hover block">Cover Letters</Link>
-              <Link href="/templates" className="link link-hover block">Templates</Link>
-              <Link href="/job-tracker" className="link link-hover block">Job Tracker</Link>
+              <a className="link link-hover block">Resume Builder</a>
+              <a className="link link-hover block">Cover Letters</a>
+              <a className="link link-hover block">Templates</a>
+              <a className="link link-hover block">Job Tracker</a>
             </div>
 
-            {/* Company */}
             <div>
               <h6 className="footer-title mb-2">Company</h6>
-              <Link href="/about" className="link link-hover block">About Us</Link>
-              <Link href="/careers" className="link link-hover block">Careers</Link>
-              <Link href="/contact" className="link link-hover block">Contact</Link>
-              <Link href="/blog" className="link link-hover block">Blog</Link>
+              <a className="link link-hover block">About Us</a>
+              <a className="link link-hover block">Careers</a>
+              <a className="link link-hover block">Contact</a>
+              <a className="link link-hover block">Blog</a>
             </div>
 
-            {/* Legal */}
             <div>
               <h6 className="footer-title mb-2">Legal</h6>
-              <Link href="/terms" className="link link-hover block">Terms of Use</Link>
-              <Link href="/privacy" className="link link-hover block">Privacy Policy</Link>
-              <Link href="/cookies" className="link link-hover block">Cookie Policy</Link>
+              <a className="link link-hover block">Terms of Use</a>
+              <a className="link link-hover block">Privacy Policy</a>
+              <a className="link link-hover block">Cookie Policy</a>
             </div>
 
-            {/* Follow Us */}
             <div>
               <h6 className="footer-title mb-2">Follow Us</h6>
               <div className="flex gap-4 mt-2">
@@ -237,6 +233,7 @@ export default function ResumeBuilder() {
                   </svg>
                 </a>
               </div>
+
             </div>
           </div>
 
@@ -245,7 +242,7 @@ export default function ResumeBuilder() {
 
           {/* Bottom Bar */}
           <div className="text-center text-sm text-gray-500">
-            © 2025 ResumeTrailer. All rights reserved. | Built by <span className="text-primary font-medium">Ayaz Hussain</span>
+            © 2025 AH ResumeTrailer. All rights reserved. | Built by <span className="text-primary font-medium">Ayaz Hussain</span>
           </div>
         </div>
       </footer>
@@ -327,10 +324,10 @@ function EmploymentHistory() {
           <input {...register(`employmentHistory.${index}.role`)} className="input input-bordered w-full" placeholder="Role" />
           <input {...register(`employmentHistory.${index}.duration`)} className="input input-bordered w-full" placeholder="Duration" />
           <textarea {...register(`employmentHistory.${index}.description`)} className="textarea textarea-bordered w-full" placeholder="Description / Achievements" />
-          <button type="button" className="btn btn-sm btn-error" onClick={() => remove(index)}>Remove</button>
+          <button type="button" className="btn btn-sm btn-error rounded hover:bg-blue-600 transition-colors duration-200" onClick={() => remove(index)}>Remove</button>
         </div>
       ))}
-      <button type="button" className="btn btn-sm btn-accent" onClick={() => append({ company: '', role: '', duration: '', description: '' })}>
+      <button type="button" className="btn btn-sm btn-accent rounded hover:bg-blue-600 transition-colors duration-200" onClick={() => append({ company: '', role: '', duration: '', description: '' })}>
         + Add Experience
       </button>
     </div>
@@ -348,10 +345,10 @@ function Education() {
           <input {...register(`education.${index}.education`)} className="input input-bordered w-full" placeholder="Degree / Education" />
           <input {...register(`education.${index}.institution`)} className="input input-bordered w-full" placeholder="Institution" />
           <input {...register(`education.${index}.graduationYear`)} className="input input-bordered w-full" placeholder="Graduation Year" />
-          <button type="button" className="btn btn-sm btn-error" onClick={() => remove(index)}>Remove</button>
+          <button type="button" className="btn btn-sm btn-error rounded hover:bg-blue-600 transition-colors duration-200" onClick={() => remove(index)}>Remove</button>
         </div>
       ))}
-      <button type="button" className="btn btn-sm btn-accent" onClick={() => append({ education: '', institution: '', graduationYear: '' })}>
+      <button type="button" className="btn btn-sm btn-accent rounded hover:bg-blue-600 transition-colors duration-200" onClick={() => append({ education: '', institution: '', graduationYear: '' })}>
         + Add Education
       </button>
     </div>
@@ -379,44 +376,52 @@ function Experience() {
         <h3 className="font-semibold mb-2">Skills</h3>
         {skillFields.map((field, i) => (
           <div key={field.id} className="flex gap-2 mb-2">
-            <input {...register(`skills.${i}`)} className="input input-bordered w-full" placeholder="e.g. React, Python" />
-            <button type="button" onClick={() => removeSkill(i)} className="btn btn-sm btn-error">X</button>
+            <input {...register(`skills.${i}.value`)} className="input input-bordered w-full" placeholder="e.g. React, Python" />
+            <button type="button" onClick={() => removeSkill(i)} className="btn btn-sm btn-error rounded hover:bg-red-600 transition-colors duration-200">X</button>
           </div>
         ))}
-        <button type="button" onClick={() => addSkill('')} className="btn btn-sm btn-accent">+ Add Skill</button>
+        <button type="button" onClick={() => addSkill({ value: '' })} className="btn btn-sm btn-accent rounded hover:bg-blue-600 transition-colors duration-200">+ Add Skill</button>
       </div>
 
       <div>
         <h3 className="font-semibold mb-2">Languages</h3>
         {langFields.map((field, i) => (
           <div key={field.id} className="flex gap-2 mb-2">
-            <input {...register(`languages.${i}`)} className="input input-bordered w-full" placeholder="e.g. English" />
-            <button type="button" onClick={() => removeLang(i)} className="btn btn-sm btn-error">X</button>
+            <input {...register(`languages.${i}.value`)} className="input input-bordered w-full" placeholder="e.g. English" />
+            <button type="button" onClick={() => removeLang(i)} className="btn btn-sm btn-error rounded hover:bg-red-600 transition-colors duration-200">X</button>
           </div>
         ))}
-        <button type="button" onClick={() => addLang('')} className="btn btn-sm btn-accent">+ Add Language</button>
+        <button type="button" onClick={() => addLang({ value: '' })} className="btn btn-sm btn-accent rounded hover:bg-blue-600 transition-colors duration-200">+ Add Language</button>
       </div>
 
       <div>
         <h3 className="font-semibold mb-2">Certifications</h3>
         {certFields.map((field, i) => (
           <div key={field.id} className="flex gap-2 mb-2">
-            <input {...register(`certifications.${i}`)} className="input input-bordered w-full" placeholder="e.g. AWS Certified Developer" />
-            <button type="button" onClick={() => removeCert(i)} className="btn btn-sm btn-error">X</button>
+            <input {...register(`certifications.${i}.value`)} className="input input-bordered w-full" placeholder="e.g. AWS Certified Developer" />
+            <button type="button" onClick={() => removeCert(i)} className="btn btn-sm btn-error rounded hover:bg-red-600 transition-colors duration-200">X</button>
           </div>
         ))}
-        <button type="button" onClick={() => addCert('')} className="btn btn-sm btn-accent">+ Add Certification</button>
+        <button type="button" onClick={() => addCert({ value: '' })} className="btn btn-sm btn-accent rounded hover:bg-blue-600 transition-colors duration-200">+ Add Certification</button>
+
       </div>
 
       <div>
         <h3 className="font-semibold mb-2">Hobbies / Interests</h3>
         {hobbyFields.map((field, i) => (
           <div key={field.id} className="flex gap-2 mb-2">
-            <input {...register(`hobbies.${i}`)} className="input input-bordered w-full" placeholder="e.g. Reading, Hiking" />
-            <button type="button" onClick={() => removeHobby(i)} className="btn btn-sm btn-error">X</button>
+            <input {...register(`hobbies.${i}.value`)} className="input input-bordered w-full" placeholder="e.g. Reading, Hiking" />
+            <button type="button" onClick={() => removeHobby(i)} className="btn btn-sm btn-error rounded hover:bg-red-600 transition-colors duration-200 ">X</button>
           </div>
         ))}
-        <button type="button" onClick={() => addHobby('')} className="btn btn-sm btn-accent">+ Add Hobby</button>
+        {/* <button type="button" onClick={() => addHobby('')} className="btn btn-sm btn-accent">+ Add Hobby</button> */}
+        <button
+          type="button"
+          onClick={() => addHobby({ value: '' })}
+          className="btn btn-sm btn-accent rounded hover:bg-blue-600 transition-colors duration-200"
+        >
+          + Add Hobby
+        </button>
       </div>
     </div>
   );
@@ -437,7 +442,7 @@ function ResumePreview({ data, submitted }: { data: Partial<ResumeData>; submitt
           <p>{data.email}</p>
           <p>{data.address}, {data.city}, {data.country}</p>
 
-          <h3 className="font-bold mt-4 mb-2">SKILLS</h3>
+          {/* <h3 className="font-bold mt-4 mb-2">SKILLS</h3>
           <ul className="list-disc ml-4">{data.skills?.map((s, i) => <li key={i}>{s}</li>)}</ul>
 
           <h3 className="font-bold mt-4 mb-2">LANGUAGES</h3>
@@ -447,7 +452,28 @@ function ResumePreview({ data, submitted }: { data: Partial<ResumeData>; submitt
           <ul className="list-disc ml-4">{data.certifications?.map((c, i) => <li key={i}>{c}</li>)}</ul>
 
           <h3 className="font-bold mt-4 mb-2">HOBBIES</h3>
-          <ul className="list-disc ml-4">{data.hobbies?.map((h, i) => <li key={i}>{h}</li>)}</ul>
+          <ul className="list-disc ml-4">{data.hobbies?.map((h, i) => <li key={i}>{h}</li>)}</ul> */}
+
+
+          <h3 className="font-bold mt-4 mb-2">SKILLS</h3>
+          <ul className="list-disc ml-4">
+            {data.skills?.map((s, i) => <li key={i}>{s.value}</li>)}
+          </ul>
+
+          <h3 className="font-bold mt-4 mb-2">LANGUAGES</h3>
+          <ul className="list-disc ml-4">
+            {data.languages?.map((l, i) => <li key={i}>{l.value}</li>)}
+          </ul>
+
+          <h3 className="font-bold mt-4 mb-2">CERTIFICATIONS</h3>
+          <ul className="list-disc ml-4">
+            {data.certifications?.map((c, i) => <li key={i}>{c.value}</li>)}
+          </ul>
+
+          <h3 className="font-bold mt-4 mb-2">HOBBIES</h3>
+          <ul className="list-disc ml-4">
+            {data.hobbies?.map((h, i) => <li key={i}>{h.value}</li>)}
+          </ul>
         </div>
 
         <div className="w-2/3">

@@ -103,7 +103,7 @@ export default function AboutUs() {
                                 Founder & Lead Developer
                             </p>
                             <p className="text-base text-base-content/80 mb-4 leading-relaxed">
-                                Ayaz Hussain is a passionate software engineer dedicated to building accessible, AI-driven products that simplify career development. With a strong background in full-stack development and user experience, he leads AH ResumeTailor's product vision and execution.
+                                Ayaz Hussain is a passionate software engineer dedicated to building accessible, AI-driven products that simplify career development. With a strong background in full-stack development and user experience,  he leads AH ResumeTailor&apos;s product vision  and execution.
                             </p>
                             <div className="flex justify-center space-x-4">
                                 <a
