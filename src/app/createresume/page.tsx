@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
-import { useForm, useFieldArray, FormProvider, useFormContext } from 'react-hook-form';
+import { useForm, useFieldArray, FormProvider, useFormContext,Path } from 'react-hook-form';
 import Link from 'next/link'
 import { useReactToPrint } from 'react-to-print';
 import { supabase } from '@/app/lib/supabaseClient';
@@ -250,6 +250,28 @@ export default function ResumeBuilder() {
   );
 }
 
+// function FormField({
+//   label,
+//   name,
+//   placeholder,
+//   type = 'text',
+// }: {
+//   label: string;
+//   name: any;
+//   placeholder: string;
+//   type?: string;
+// }) {
+//   const { register } = useFormContext<ResumeData>();
+//   return (
+//     <div className="form-control w-full">
+//       <label className="label">
+//         <span className="label-text font-semibold">{label}</span>
+//       </label>
+//       <input {...register(name)} type={type} placeholder={placeholder} className="input input-bordered w-full" />
+//     </div>
+//   );
+// }
+
 function FormField({
   label,
   name,
@@ -257,17 +279,23 @@ function FormField({
   type = 'text',
 }: {
   label: string;
-  name: any;
+  name: Path<ResumeData>; // ✅ ensures name is a key of ResumeData
   placeholder: string;
   type?: string;
 }) {
   const { register } = useFormContext<ResumeData>();
+
   return (
     <div className="form-control w-full">
       <label className="label">
         <span className="label-text font-semibold">{label}</span>
       </label>
-      <input {...register(name)} type={type} placeholder={placeholder} className="input input-bordered w-full" />
+      <input
+        {...register(name)}
+        type={type}
+        placeholder={placeholder}
+        className="input input-bordered w-full"
+      />
     </div>
   );
 }
