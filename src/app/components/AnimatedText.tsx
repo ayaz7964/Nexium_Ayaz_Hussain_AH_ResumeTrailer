@@ -44,8 +44,8 @@ export default function AnimatedText() {
 
   return (
     <span className="text-primary font-semibold transition-all duration-300 inline-block">
-    {displayText}
-    <span className="inline-block w-[1px] h-[1em] bg-primary animate-blink align-bottom ml-1" />
-  </span>
+      {displayText}
+      <span className="inline-block w-[1px] h-[1em] bg-primary animate-blink align-bottom ml-1" />
+    </span>
   );
 }
