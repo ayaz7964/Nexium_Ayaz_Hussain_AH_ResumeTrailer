@@ -3,6 +3,7 @@
 **Tailor your resume for any job — instantly.**  
 AH Resume Trailer is an AI-powered web app that lets you upload your resume and match it with a job description to generate a tailored resume. It also features a resume builder to help you start from scratch.
 
+🔗 [Connect with me on LinkedIn](https://www.linkedin.com/in/ayaz-hussain-cs)
 🔗 **Live Demo**: [ahresumetrailer.vercel.app](https://ahresumetrailer.vercel.app/)  
 📁 **GitHub Repo**: [github.com/ayaz7964/Nexium_Ayaz_Hussain_AH_ResumeTrailer](https://github.com/ayaz7964/Nexium_Ayaz_Hussain_AH_ResumeTrailer)
 
@@ -64,7 +65,7 @@ pnpm dev
 bun dev
 ```
 
-🔗 [Connect with me on LinkedIn](https://www.linkedin.com/in/ayaz-hussain-cs)
+
 
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
