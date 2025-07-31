@@ -10,7 +10,7 @@ export default function Home() {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
             src="/banner.png"
-            className="max-w-150 rounded-lg shadow-2xl"
+            className="max-w-2/2 rounded-lg shadow-2xl"
           />
           <div>
             <h1 className="text-7xl font-bold">This resume builder gets you</h1>
@@ -85,10 +85,10 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <div className="card bg-base-100 max-w-full shadow-sm p-4 m-4">
+      <div className="card bg-base-100  shadow-sm p-4 m-4">
 
         <div className="card-body items-center  text-center">
-          <h2 className="card-title w-1/2 text-blue-600 text-7xl font-bold ">Join over 52,794,000 users worldwide</h2>
+          <h2 className="card-title ml-2 text-blue-600 text-7xl font-bold ">Join over 52,794,000 users worldwide</h2>
           <p>Start for free — try our resume builder now</p>
           <div className="card-actions">
             <Link href="/login" className="btn btn-primary rounded">Create my Resume</Link>
