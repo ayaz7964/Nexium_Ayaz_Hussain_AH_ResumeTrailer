@@ -45,7 +45,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ```bash
 git clone https://github.com/ayaz7964/Nexium_Ayaz_Hussain_AH_ResumeTrailer.git
 cd Nexium_Ayaz_Hussain_AH_ResumeTrailer
-
+```
 
 
 
@@ -72,9 +72,12 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 
 ## Create .env file 
+
+```bash 
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-GROQ_API_KEY=api_key 
+GROQ_API_KEY=api_key
+```
 
 ## Learn More
 
